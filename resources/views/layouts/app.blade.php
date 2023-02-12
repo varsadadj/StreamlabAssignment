@@ -36,7 +36,8 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href="{{ url('/plans') }}">Plans</a></li>
+                        <li><a href="{{ url('/subscription') }}">My Subscription</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -76,5 +77,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('braintree')
 </body>
 </html>
