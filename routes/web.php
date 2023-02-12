@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/braintree/token', 'BraintreeTokenController@token');
+
+    Route::get('/plans', 'PlansController@index')->name('plan.list');
+    Route::get('/plan/{plan}', 'PlansController@show');
+
+    Route::post('/subscribe', 'SubscriptionsController@store');
+    Route::get('/subscription', 'SubscriptionsController@index');
+    Route::get('/subscription/cancel/{subscription_id}', 'SubscriptionsController@cancel');
+});
+

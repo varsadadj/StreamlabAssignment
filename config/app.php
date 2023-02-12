@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        App\Providers\BraintreeServiceProvider::class,
         /*
          * Application Service Providers...
          */
